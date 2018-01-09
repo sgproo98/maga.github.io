@@ -3,6 +3,7 @@
 require_once('phpmailer/PHPMailerAutoload.php');
 $name = $_POST['name'];
 $phone = $_POST['phone'];
+$user_message = $_POST['message'];
 $mail = $_POST['mail'];
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
@@ -30,8 +31,8 @@ $mail->isHTML(true);                                  // Set email format to HTM
 $mail->Subject = 'Магазин';
 $mail->Body    = "
 	Номер клиента: ".htmlspecialchars($phone)."<br>
-	Имя пользователя ".htmlspecialchars($username)."<br>
-	Почта: ".htmlspecialchars($email)."<br>
+	Имя пользователя ".htmlspecialchars($name)."<br>
+	Почта: ".htmlspecialchars($mail)."<br>
 	Сообщение: ".htmlspecialchars($user_message);
 $mail->AltBody = 'Это сообщение в формате plain text';
 
